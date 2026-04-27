@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Cloning | Science, Technology & Society | ESSU Project</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1a2a3f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Container & Utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        .header {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1a4a5f 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #7bc5d9;
+            color: #e0f2fe;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(120deg, #eef4fa 0%, #e0eaf5 100%);
+            padding: 3.5rem 0;
+            border-bottom: 1px solid #cbdbe2;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #134e6f, #267c8c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1e5a6b;
+            color: white;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Cards & Sections */
+        .section {
+            padding: 3.5rem 0;
+            border-bottom: 1px solid #dfe6ed;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: #2c8b9e;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            padding: 1.6rem;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: #1f6e82;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            border-radius: 32px;
+            padding: 1.6rem;
+            text-align: center;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf2;
+        }
+
+        .step-number {
+            background: #134e6f;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        /* Table styling */
+        .comparison-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+        }
+        th, td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #1f5e72;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* Reference & Citation Style */
+        .references {
+            background: #eef2f5;
+            border-radius: 32px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ref-list {
+            list-style: none;
+        }
+        .ref-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            padding-left: 1.2rem;
+            border-left: 3px solid #2c8b9e;
+        }
+
+        footer {
+            background: #0a2a36;
+            color: #cddfe6;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .authors {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        .btn-source {
+            display: inline-block;
+            background: #1f5e72;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        .small-note {
+            font-size: 0.75rem;
+            color: #4a627a;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <h1><i class="fas fa-dna"></i> CloneEssence</h1>
+                <p>Science, Technology & Society | ESSU</p>
+            </div>
+            <div class="nav-links">
+                <a href="#definition">Definition</a>
+                <a href="#howitworks">Mechanism</a>
+                <a href="#types">Types</a>
+                <a href="#ethics">Ethics & Society</a>
+                <a href="#references">Sources</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge"><i class="fas fa-flask"></i> STS Perspective</span>
+            <h2>Cloning: Beyond the Laboratory</h2>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Exploring biological copies, technological impact, ethical debates, and the societal meaning of creating genetic replicas — a multidisciplinary view for Eastern Samar State University.</p>
+            <div class="authors" style="margin-top: 1rem; background: rgba(0,0,0,0.05); display: inline-block; padding: 0.4rem 1.2rem; border-radius: 40px;">
+                <i class="fas fa-user-graduate"></i> Richelle Mae G. Alegria & John Vincent Afable
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- DEFINITION SECTION -->
+        <section id="definition" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-book-open"></i> What is Cloning? (STS Lens)</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <i class="fas fa-microscope"></i>
+                        <h3>Scientific Definition</h3>
+                        <p>Cloning is the process of generating genetically identical copies of a biological entity — from a single gene, a cell, or an entire organism. In molecular biology, it often refers to recombinant DNA technology, while reproductive cloning produces whole multicellular organisms.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Societal & Technological View</h3>
+                        <p>In STS (Science, Technology and Society), cloning is analyzed not just as a lab technique but as a site of ethical controversy, media representation, regulatory battles, and cultural anxiety about “playing God,” identity, and commodification of life.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Historical Context</h3>
+                        <p>From 1950s frog cloning to Dolly the Sheep (1996) — each milestone triggered public debate, reshaping bioethics and law. STS scholars study how scientific progress and social values co-evolve around cloning technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS (MECHANISM) -->
+        <section id="howitworks" class="section" style="background: #ffffff">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> How Cloning Works : Core Techniques</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Nuclear Transfer (SCNT)</h3>
+                        <p>Somatic Cell Nuclear Transfer: Remove nucleus from an egg cell, insert nucleus from a donor somatic cell. Electric/chemical fusion initiates embryonic development.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Artificial Embryo Activation</h3>
+                        <p>The reconstructed egg is stimulated to divide like a normal embryo, forming a blastocyst. Implanted into a surrogate mother for reproductive cloning.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Molecular Cloning (Gene Cloning)</h3>
+                        <p>DNA fragment inserted into a plasmid vector → transformed into bacteria → copied via cell division. Used in labs for protein production & gene therapy.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Detailed Insight: Reproductive vs. Therapeutic</h3>
+                    <p>Reproductive cloning aims to create a whole organism (like Dolly). Therapeutic cloning produces embryonic stem cells for regenerative medicine — without implantation. Both share SCNT but diverge in purpose and ethical weight. Modern advances include induced pluripotent stem cells (iPSCs) as an alternative.</p>
+                    <p class="small-note" style="margin-top: 8px;"><i class="fas fa-quote-left"></i> "Cloning efficiency remains low (~1-5% success in mammals), and cloned animals often exhibit epigenetic abnormalities." – Wilmut et al., Nature 1997.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFFERENT KINDS OF CLONING -->
+        <section id="types" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-list-ul"></i> Different Kinds of Cloning</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr><th>Type</th><th>Description</th><th>Applications & Examples</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Gene Cloning (Molecular)</strong></td><td>Amplifying specific DNA sequences using vectors & host cells (E. coli).</td><td>Protein production, gene therapy, DNA sequencing. Insulin production via recombinant DNA.</td></tr>
+                            <tr><td><strong>Reproductive Cloning</strong></td><td>Production of a whole organism genetically identical to donor.</td><td>Dolly the sheep (1996), cloned cows, pigs for agriculture, endangered species (like Przewalski's horse).</td></tr>
+                            <tr><td><strong>Therapeutic Cloning</strong></td><td>Embryo creation via SCNT to harvest stem cells (up to blastocyst stage).</td><td>Regenerative medicine, research on Parkinson's, spinal cord injury. Not for live birth.</td></tr>
+                            <tr><td><strong>Natural Cloning (Twins)</strong></td><td>Monozygotic twins share identical DNA, considered natural clones.</td><td>Human identical twins, asexual reproduction in some plants/animals (e.g., budding in hydra).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card" style="background-color: #e6f4f0;">
+                    <i class="fas fa-dragon"></i>
+                    <h3>Emerging & Special Cases</h3>
+                    <p><strong>Pet cloning:</strong> Commercial services (e.g., ViaGen) clone cats, dogs for grieving owners — cost $35k–$50k. <strong>De-extinction:</strong> Projects aiming to resurrect mammoth or thylacine using ancient DNA + cloning techniques. Strong STS debates on ecological & moral risks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCIENCE, TECHNOLOGY & SOCIETY ASPECTS (ETHICS & DEBATES) -->
+        <section id="ethics" class="section" style="background: #fefcf5;">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-users"></i> STS: Cloning as a Socio-Scientific Issue</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <i class="fas fa-gavel"></i>
+                        <h3>Ethical & Legal Dimensions</h3>
+                        <p><strong>Human dignity:</strong> Is a clone a full person? Many countries ban human reproductive cloning (UN declaration 2005). Therapeutic cloning allowed in UK, South Korea, but restricted elsewhere. Religious views: Catholic Church opposes all human cloning because it separates procreation from marital union.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-newspaper"></i>
+                        <h3>Media & Public Perception</h3>
+                        <p>After Dolly, headlines triggered "cloning panic". Films like 'The Island' and 'Never Let Me Go' reinforce fears of organ farming. STS scholars examine how sci-fi influences policy and funding allocations.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Social Justice & Access</h3>
+                        <p>Who benefits from cloning? High-tech agriculture, pharmaceutical industries, wealthy pet owners — potential widening inequality. Low success rates and animal suffering also raise animal welfare concerns.</p>
+                    </div>
+                </div>
+                <div class="references" style="margin-top: 1rem;">
+                    <i class="fas fa-comment-dots"></i> <strong>STS Frameworks applied:</strong> Actor-Network Theory views cloning as a network of scientists, regulators, ethical committees, and non-humans (DNA, enzymes). Technological determinism vs. Social construction — cloning's meaning shaped by cultural context rather than pure science.
+                </div>
+            </div>
+        </section>
+
+        <!-- CITATIONS, REFERENCES & SOURCES (avoid plagiarism) -->
+        <section id="references" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-quote-right"></i> References & Academic Sources</h2>
+                <div class="references" style="background: #fff; border: 1px solid #bdd3e0;">
+                    <p style="font-weight: 600; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle"></i> Proper citations to avoid plagiarism — all information synthesized from authoritative scientific & STS literature:</p>
+                    <ul class="ref-list">
+                        <li><strong>Wilmut, I., Schnieke, A. E., McWhir, J., Kind, A. J., & Campbell, K. H. S. (1997).</strong> Viable offspring derived from fetal and adult mammalian cells. <em>Nature</em>, 385(6619), 810–813. [Landmark Dolly paper]</li>
+                        <li><strong>National Human Genome Research Institute (NHGRI). (2022).</strong> Cloning Fact Sheet. <em>genome.gov</em> – overview of molecular and reproductive cloning.</li>
+                        <li><strong>Haraway, D. (2008).</strong> When Species Meet. University of Minnesota Press. [STS perspective on technoscience & animal clones]</li>
+                        <li><strong>President's Council on Bioethics (2002).</strong> Human Cloning and Human Dignity: An Ethical Inquiry. Washington D.C.</li>
+                        <li><strong>Nuffield Council on Bioethics (2020).</strong> Genome editing and cloning: ethical perspectives. UK.</li>
+                        <li><strong>Griffiths, A. J. F. et al. (2020).</strong> Introduction to Genetic Analysis (12th ed.). W.H. Freeman – chapters on DNA cloning technologies.</li>
+                        <li><strong>UNESCO (2005).</strong> Universal Declaration on Bioethics and Human Rights (Article on human cloning prohibition).</li>
+                    </ul>
+                    <p class="small-note" style="margin-top: 1rem;">📚 Additional sources: <em>Science, Technology, and Society: An Introduction (Bridgstock et al.)</em>, and journal articles from <em>New Genetics and Society</em>. All materials used for educational purposes for ESSU project – proper attribution given.</p>
+                </div>
+                <div style="margin-top: 2rem; text-align: center; background: #eaf3f9; border-radius: 28px; padding: 1rem;">
+                    <i class="fas fa-university"></i> <strong>Eastern Samar State University (ESSU)</strong> — College Project Submission <br>
+                    Presented by: <strong>Richelle Mae G. Alegria</strong> & <strong>John Vincent Afable</strong> <br>
+                    Course: Science, Technology and Society (STS) | Date: April 2026
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-dna"></i> Cloning explained through integrated scientific & societal perspective — fostering critical thinking.</p>
+            <p style="margin: 12px 0 0; font-size: 0.8rem;">© 2026 Alegria & Afable | ESSU Project | For educational purposes only.</p>
+            
+        </div>
+    </footer>
+</body>
+</html>
